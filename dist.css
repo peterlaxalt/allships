@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+.clr-lime {
+  color: red; }
+
+.clr-fuschia {
+  color: pink; }
+
+.clr-secondary {
+  color: #FF5730; }
+
+.clr-primary {
+  color: #00d7e6; }
+
+.clr-black {
+  color: #000000; }
+
+.clr-white {
+  color: #ffffff; }
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Press Start 2P", cursive;
+  cursor: crosshair;
+  overflow: hidden; }
+
+.abs-top {
+  position: absolute;
+  top: 12%; }
+
+.abs-bottom {
+  position: absolute;
+  bottom: 12%; }
+
+.abs-center-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); }
+
+.abs-center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.bounds {
+  position: fixed;
+  z-index: 100;
+  border: 30px solid #000000;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none; }
+  .bounds:before {
+    content: '';
+    position: absolute;
+    left: 26px;
+    right: 26px;
+    top: 26px;
+    bottom: 26px;
+    border: 2px solid #00d7e6; }
+
+.banner {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%); }
+  .banner .logotype {
+    font-size: 5rem;
+    animation: blink 1s steps(5, start) infinite; }
+  .banner .subtype {
+    margin-top: 20px;
+    letter-spacing: 5px;
+    color: #000000; }
+
+.row {
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 80px; }
+  .row .el {
+    width: 400px;
+    height: 400px;
+    background: #000000; }
+
+.el-corner {
+  width: 80px;
+  height: 80px;
+  background: #000000;
+  position: fixed; }
+  .el-corner.top-left {
+    top: 90px;
+    left: 90px; }
+  .el-corner.bottom-left {
+    bottom: 90px;
+    left: 90px; }
+  .el-corner.top-right {
+    top: 90px;
+    right: 90px; }
+  .el-corner.bottom-right {
+    right: 90px;
+    bottom: 90px; }
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1; }
+
+@keyframes blink {
+  to {
+    visibility: hidden; } }
+@keyframes backgroundFade {
+  0% {
+    background: #00d7e6; }
+  50% {
+    background: #FF5730; }
+  75% {
+    background: #ffffff; }
+  100% {
+    background: #00d7e6; } }

@@ -1,0 +1,198 @@
+// Variables
+
+$b: 20px;
+
+$y-offset: 12%;
+
+// Colors
+$clr-primary: #00d7e6;
+$clr-secondary: #FF5730;
+$clr-black: #000000;
+$clr-white: #ffffff;
+
+.clr-lime {
+  color: red;
+}
+
+.clr-fuschia {
+  color: pink;
+}
+
+.clr-secondary {
+  color: $clr-secondary;
+}
+
+.clr-primary {
+  color: $clr-primary;
+}
+
+.clr-black {
+  color: $clr-black;
+}
+
+.clr-white {
+  color: $clr-white;
+}
+
+// Core
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Press Start 2P", cursive;
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+
+// Positioning
+.abs-top {
+  position: absolute;
+  top: $y-offset;
+}
+
+.abs-bottom {
+  position: absolute;
+  bottom: $y-offset;
+}
+
+.abs-center-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.abs-center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// Layout
+.bounds {
+
+  $border-width: $b * 1.5;
+
+  position: fixed;
+  z-index: 100;
+  // animation: backgroundFade 10s infinite;
+  border: $border-width solid $clr-black;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: $b * 1.3 ;
+    right: $b * 1.3 ;
+    top: $b * 1.3 ;
+    bottom: $b * 1.3 ;
+    border: 2px solid $clr-primary;
+  }
+}
+
+
+// Banners
+.banner {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .logotype {
+    font-size: 5rem;
+    animation: blink 1s steps(5, start) infinite;
+  }
+
+  .subtype {
+    margin-top: $b;
+    letter-spacing: 5px;
+    color: $clr-black;
+  }
+}
+
+.row {
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px $b * 4;
+
+  .el {
+    width: $b * 20;
+    height: $b * 20;
+    // border-radius: 100%;
+    background: $clr-black;
+  }
+}
+
+.el-corner {
+  $edge-offset: $b * 4.5;
+
+  width: $b * 4;
+  height: $b * 4;
+  background: $clr-black;
+  position: fixed;
+
+  &.top-left {
+    top: $edge-offset;
+    left: $edge-offset;
+  }
+
+  &.bottom-left {
+    bottom: $edge-offset;
+    left: $edge-offset;
+  }
+
+  &.top-right {
+    top: $edge-offset;
+    right: $edge-offset;
+  }
+
+  &.bottom-right {
+    right: $edge-offset;
+    bottom: $edge-offset;
+  }
+}
+
+
+// Canvas
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+// Keyframes
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes backgroundFade {
+  0% {
+    background: $clr-primary;
+  }
+
+  50% {
+    background: $clr-secondary;
+  }
+
+  75% {
+    background: $clr-white;
+  }
+
+  100% {
+    background: $clr-primary;
+  }
+}
